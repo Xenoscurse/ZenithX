@@ -24,7 +24,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
             width: 100%;
@@ -37,7 +37,7 @@
         }
         
         header {
-            padding: 30px 0;
+            padding: 40px 0;
             border-bottom: 1px solid #222;
             display: flex;
             flex-direction: column;
@@ -52,8 +52,8 @@
         }
         
         .profile-pic {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #333;
@@ -79,11 +79,11 @@
         
         main {
             flex: 1;
-            padding: 60px 0;
+            padding: 40px 0;
         }
         
         .status-section {
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         
         .section-title {
@@ -110,7 +110,7 @@
         
         .status-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
@@ -118,11 +118,12 @@
         .status-card {
             background: rgba(17, 17, 17, 0.8);
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border: 1px solid #222;
             transition: transform 0.3s, box-shadow 0.3s;
             backdrop-filter: blur(10px);
+            text-align: center;
         }
         
         .status-card:hover {
@@ -137,6 +138,7 @@
             margin-bottom: 15px;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         
         .card-title i {
@@ -145,20 +147,21 @@
         }
         
         .card-value {
-            font-size: 32px;
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .status-indicator {
             display: flex;
             align-items: center;
+            justify-content: center;
             margin-top: 10px;
         }
         
         .status-dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             margin-right: 10px;
             animation: pulse 2s infinite;
@@ -183,45 +186,6 @@
         .maintenance {
             background-color: #ffaa00;
             box-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .stat-box {
-            background: rgba(17, 17, 17, 0.8);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid #222;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-        
-        .stat-box:hover {
-            transform: translateY(-3px);
-            border-color: #444;
-        }
-        
-        .stat-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: #5865F2;
-        }
-        
-        .stat-value {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            color: #aaa;
-            font-size: 16px;
         }
         
         .invite-section {
@@ -371,7 +335,7 @@
         }
         
         @media (max-width: 768px) {
-            .status-cards, .stats-grid {
+            .status-cards {
                 grid-template-columns: 1fr;
             }
             
@@ -428,17 +392,6 @@
                     
                     <div class="status-card">
                         <div class="card-title">
-                            <i class="fas fa-bolt"></i> Response Time
-                        </div>
-                        <div class="card-value" id="response-time">Loading...</div>
-                        <div class="status-indicator">
-                            <div class="status-dot" id="response-dot"></div>
-                            <span id="response-text">Measuring...</span>
-                        </div>
-                    </div>
-                    
-                    <div class="status-card">
-                        <div class="card-title">
                             <i class="fas fa-sync-alt"></i> Uptime
                         </div>
                         <div class="card-value" id="uptime">Loading...</div>
@@ -446,32 +399,6 @@
                             <div class="status-dot" id="uptime-dot"></div>
                             <span id="uptime-text">Calculating...</span>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-icon"><i class="fas fa-server"></i></div>
-                        <div class="stat-value" id="servers">Loading...</div>
-                        <div class="stat-label">Servers</div>
-                    </div>
-                    
-                    <div class="stat-box">
-                        <div class="stat-icon"><i class="fas fa-users"></i></div>
-                        <div class="stat-value" id="users">Loading...</div>
-                        <div class="stat-label">Users</div>
-                    </div>
-                    
-                    <div class="stat-box">
-                        <div class="stat-icon"><i class="fas fa-terminal"></i></div>
-                        <div class="stat-value" id="commands">Loading...</div>
-                        <div class="stat-label">Commands</div>
-                    </div>
-                    
-                    <div class="stat-box">
-                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
-                        <div class="stat-value" id="session">Loading...</div>
-                        <div class="stat-label">Current Session</div>
                     </div>
                 </div>
             </section>
@@ -540,7 +467,7 @@
         
         // Add loading animation to elements
         function addLoadingAnimation() {
-            const elements = document.querySelectorAll('.status-card, .stat-box');
+            const elements = document.querySelectorAll('.status-card');
             elements.forEach(el => {
                 el.classList.add('loading');
             });
@@ -548,7 +475,7 @@
         
         // Remove loading animation from elements
         function removeLoadingAnimation() {
-            const elements = document.querySelectorAll('.status-card, .stat-box');
+            const elements = document.querySelectorAll('.status-card');
             elements.forEach(el => {
                 el.classList.remove('loading');
             });
@@ -582,25 +509,11 @@
             document.getElementById('status-dot').className = `status-dot ${isOnline ? 'online' : 'offline'}`;
             document.getElementById('status-text').textContent = isOnline ? 'All systems operational' : 'Bot is offline';
             
-            // Response Time
-            const responseTime = data.responseTime || data.ping || 128;
-            document.getElementById('response-time').textContent = `${responseTime}ms`;
-            document.getElementById('response-dot').className = `status-dot ${responseTime < 200 ? 'online' : responseTime < 500 ? 'maintenance' : 'offline'}`;
-            document.getElementById('response-text').textContent = 
-                responseTime < 200 ? 'Optimal performance' : 
-                responseTime < 500 ? 'Slight delay' : 'High latency';
-            
             // Uptime
             const uptime = data.uptime || data.uptimePercentage || 99.8;
             document.getElementById('uptime').textContent = `${uptime}%`;
             document.getElementById('uptime-dot').className = `status-dot ${uptime > 99 ? 'online' : uptime > 95 ? 'maintenance' : 'offline'}`;
             document.getElementById('uptime-text').textContent = 'Last 30 days';
-            
-            // Statistics
-            document.getElementById('servers').textContent = (data.servers || data.guilds || 1247).toLocaleString();
-            document.getElementById('users').textContent = (data.users || data.members || 54892).toLocaleString();
-            document.getElementById('commands').textContent = data.commands || 24;
-            document.getElementById('session').textContent = data.session || data.uptimeFormatted || '7d 12h';
             
             // Update status
             document.getElementById('update-status-text').textContent = 'System is up to date';
@@ -612,12 +525,7 @@
         function useSimulatedData() {
             const simulatedData = {
                 status: 'online',
-                responseTime: 128,
                 uptime: 99.8,
-                servers: 1247,
-                users: 54892,
-                commands: 24,
-                session: '7d 12h',
                 lastUpdate: new Date().toISOString()
             };
             updateDashboard(simulatedData);
