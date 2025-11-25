@@ -23,12 +23,5 @@ A sleek, real-time status dashboard for the Genos Discord bot. Monitor bot statu
 The dashboard is automatically deployed via GitHub Pages. Any changes to the `main` branch will trigger a new deployment.
 
 ### For Users
-Simply visit the live dashboard URL to monitor Genos bot status.
+All Right Reserved, Do NOT Reupload.
 
-### For Developers
-1. Clone this repository
-2. Open `index.html` in a code editor
-3. Update the GitHub API configuration in the script section:
-   ```javascript
-   const username = 'your-github-username';
-   const repo = 'your-repo-name';.
